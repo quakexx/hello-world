@@ -9,5 +9,5 @@ env:
     - CGO_ENABLED=0
 install: true
 script:
-  - go build 
+  - go build -o web web.go 
   - docker image build -t mytest/web:$TRAVIS_BRANCH web
