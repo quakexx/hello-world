@@ -12,3 +12,8 @@ script:
   - go build
   - ls
   - docker image build -t mytest/web:$TRAVIS_BRANCH . 
+after_success:
+  - if [ -n "$TRAVIS_TAG}" ] ; then
+      docker login -u="${DOCKER_USER}" -p="${DOCKER_PASSWORD}";
+      docker push mytest/web:$TRAVIS_BRANCH;
+    fi
