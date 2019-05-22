@@ -10,4 +10,5 @@ env:
 install: true
 script:
   - go build
+  - ls
   - docker image build -t mytest/web:$TRAVIS_BRANCH . 
