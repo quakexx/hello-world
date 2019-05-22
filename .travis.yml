@@ -14,8 +14,10 @@ script:
   - docker image build -t mytest/web:$TRAVIS_BRANCH . 
   - echo $TRAVIS_TAG
   - echo $TRAVIS_BRANCH
+  - echo ${DOCKER_USER}
+  - echo ${DOCKER_PASSWORD}
 after_success:
   - if [ -n "$TRAVIS_TAG}" ] ; then
       docker login -u="${DOCKER_USER}" -p="${DOCKER_PASSWORD}";
-      docker push mytest/web:$TRAVIS_BRANCH;
+      docker push quakexx/web:$TRAVIS_BRANCH;
     fi
