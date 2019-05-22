@@ -1,0 +1,12 @@
+sudo: required
+services:
+  - docker
+language: go
+go:
+  - 1.12
+env:
+  global:
+    - CGO_ENABLED=0
+install: true
+script:
+  go build 
